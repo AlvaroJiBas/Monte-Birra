@@ -13,7 +13,7 @@ import { Route,Routes,Router } from 'react-router-dom';
 import Retos from './pages/Retos.jsx'
 import Logros from './pages/Logros.jsx'
 import Main from './pages/Main.jsx';
-
+import Chat from './components/Chat.jsx';
 
 export default function App() {
   const isLoggedIn = true;
@@ -45,7 +45,7 @@ export default function App() {
         </Box>
 
         {/* Contenido principal */}
-        <Box sx={{ width: '66.66%', bgcolor: '#fafafa', p: 3, minHeight: '100vh', overflowY: 'auto' }}>
+        <Box sx={{ width: '62.66%', bgcolor: '#fafafa', p: 3, minHeight: '100vh', overflowY: 'auto' }}>
          <Routes>
               <Route path="*" element={<Main />} />
               <Route path="/retos" element={<Retos />} />
@@ -54,8 +54,8 @@ export default function App() {
         </Box>
         
         {/* Panel derecho */}
-        <Box sx={{ width: '16.66%', bgcolor: '#f5f5f5', p: 2 }}>
-          <Typography variant="subtitle1">Panel derecho</Typography>
+        <Box sx={{ width: '20.66%', bgcolor: '#f5f5f5', p: 2 ,maxHeight: '100vh'}}>
+          <Chat/>
         </Box>
       </Box>
     </Box>

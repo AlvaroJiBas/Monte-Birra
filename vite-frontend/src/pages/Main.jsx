@@ -1,5 +1,5 @@
 import React from "react";
-import { Card,CardActionArea,CardMedia,CardContent,Typography,CardActions,Button, Container } from "@mui/material";
+import { Box,Card,CardActionArea,CardMedia,CardContent,Typography,CardActions,Button, Container } from "@mui/material";
 
 
 const Main = () => {
@@ -37,6 +37,22 @@ return(
   <Typography sx={{mt : "2rem"}} variant="h5" component="div">
           Logros :
     </Typography>
+    <Box  component= "img" sx={{
+    height: 133,
+    width: 150,
+    maxHeight: { xs: 133, md: 67 },
+    maxWidth: { xs: 150, md: 50 },
+  }}
+  alt="Medalla cerveza."
+  src="img\medalla10.png"></Box>
+      <Box  component= "img" sx={{
+    height: 133,
+    width: 150,
+    maxHeight: { xs: 133, md: 67 },
+    maxWidth: { xs: 150, md: 50 },
+  }}
+  alt="Medalla cerveza."
+  src="img\medalla50.png"></Box>
   </Container>
 )
 };
