@@ -2,12 +2,19 @@ import React from 'react';
 import {
   Box, 
   AppBar,
-
+  Toolbar,
+  Avatar,
+  Button,
   Typography
 
 } from '@mui/material';
 import NavBar from './components/NavBar'
-import Arriba from './components/Arriba';
+import { Route,Routes,Router } from 'react-router-dom';
+import Retos from './pages/Retos.jsx'
+import Logros from './pages/Logros.jsx'
+import Main from './pages/Main.jsx';
+
+
 export default function App() {
   const isLoggedIn = true;
 
@@ -15,23 +22,37 @@ export default function App() {
     <Box sx={{ height: '100vh', width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
 
 
-      {/* AppBar */}
-      
-        <Arriba/>
-  
+      <AppBar position="static">
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Typography variant="h6">Sendero & Bar</Typography>
+        {isLoggedIn ? (
+        <Box display="flex" alignItems="center" gap={2}>
+            <Typography variant="body1">pAna</Typography>
+            <Avatar src="https://via.placeholder.com/36" alt="Ana" />
+        </Box>
+        ) : (
+        <Button color="inherit">Login</Button>
+        )}
+        </Toolbar>
+      </AppBar>
 
       {/* Layout */}
       <Box sx={{ flex: 1, display: 'flex', width: '100%', height: '100%' }}>
         {/* Menú lateral */}
+        
         <Box sx={{ width: '16.66%', bgcolor: '#e0e0e0', p: 2 }}>
-          <NavBar></NavBar>
+          <NavBar/>
         </Box>
 
         {/* Contenido principal */}
-        <Box sx={{ width: '66.66%', bgcolor: '#fafafa', p: 3 }}>
-          <Typography variant="h5">Contenido Principal</Typography>
+        <Box sx={{ width: '66.66%', bgcolor: '#fafafa', p: 3, minHeight: '100vh', overflowY: 'auto' }}>
+         <Routes>
+              <Route path="*" element={<Main />} />
+              <Route path="/retos" element={<Retos />} />
+              <Route path="/logros" element={<Logros />} />
+        </Routes>
         </Box>
-
+        
         {/* Panel derecho */}
         <Box sx={{ width: '16.66%', bgcolor: '#f5f5f5', p: 2 }}>
           <Typography variant="subtitle1">Panel derecho</Typography>
