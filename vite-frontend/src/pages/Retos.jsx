@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField,Button,Container,Box } from "@mui/material";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -10,6 +10,19 @@ import AccordionActions from "@mui/material/AccordionActions";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
  // Import logo
 
+
+ useEffect(() => {
+  const query =  Rutas {
+    nombre
+    origen
+    destino
+    dificultad
+    duracion
+    distancia
+  }
+
+
+ })
 const Retos = () => {
 return(
     <div style={{minHeight: '100vh', overflowY: 'auto'}}>

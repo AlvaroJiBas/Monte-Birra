@@ -1,0 +1,28 @@
+const { ObjectId } = require('mongodb');
+
+const usuarioId = ObjectId("664abc1234567890abcdef01"); // ID del usuario
+const rutaId = ObjectId("665def0987654321abcdef01");    // ID de la ruta
+
+db.usuarios.updateOne(
+  { _id: usuarioId },
+  { $push: { rutas: rutaId } }
+);
+
+exports = async function(changeEvent) {
+  const bar = changeEvent.fullDocument;
+  const rutaId = bar.rutaId; // suponiendo que el bar tiene este campo
+
+  if (!rutaId) {
+    console.log("El bar no tiene campo rutaId");
+    return;
+  }
+
+  const rutas = context.services.get("mongodb-atlas")
+                .db("tuNombreDeBBDD")
+                .collection("rutas");
+
+  await rutas.updateOne(
+    { _id: rutaId },
+    { $push: { bares: bar._id } }
+  );
+};
